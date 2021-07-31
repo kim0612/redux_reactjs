@@ -2,14 +2,13 @@ import React,{ Component } from "react";
 
 export default class DisplayNumber extends Component {
   render(){
+    console.log(`Display Number : ${this.props.__number}`)
     return(
       <div className="DisplayNumber">
         Display Number
-        <p>
           <form>
-            <input type="text" value=""></input>
+            <input type="text" value={this.props.__number} readOnly></input>
           </form>
-        </p>
       </div>
     );
   }
