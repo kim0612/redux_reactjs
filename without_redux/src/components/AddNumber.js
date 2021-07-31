@@ -1,17 +1,21 @@
 import React,{ Component } from "react";
 
 export default class AddNumber extends Component {
+  state = {addNum:""};
   render(){
-    console.log(`AddNumber number : ${this.props.__number}`);
     return(
       <div className="AddNumber">
         Add Number
           <form>
-            <input type="text" value={this.props.__number} readOnly></input>
+            <input 
+              type="text" 
+              value={this.state.addNum}
+              onChange={(e)=>{this.setState({addNum:Number(e.target.value)})}} 
+            />
             <input 
               type="button" 
               value="+"
-              onClick={()=>{this.props._onChangeNum(this.props.__number+1)}}  
+              onClick={()=>{this.props._onChangeNum(this.state.addNum)}}  
             />
           </form>
       </div>

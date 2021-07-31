@@ -7,7 +7,7 @@ export default class Root extends Component {
   constructor(props){
     super(props);
     this.state = {
-      number : 10
+      number : 0
     }
   }
   render(){
@@ -17,9 +17,8 @@ export default class Root extends Component {
       <div className="Root">
         Root
         <AddNumberRoot 
-          _number={this.state.number} 
           onChangeNum={(inputnum)=>
-            {this.setState({number:inputnum})}
+            {this.setState({number:this.state.number + inputnum})}
           }
         />
         <DisplayNumberRoot
