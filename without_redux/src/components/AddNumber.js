@@ -6,8 +6,9 @@ export default class AddNumber extends Component {
     return(
       <div className="AddNumber">
         Add Number
-          <form>
+          <form onSubmit={(e)=>{e.preventDefault();console.log(e.target.inputNum.value)}}>
             <input 
+              name="inputNum"
               type="text" 
               value={this.state.addNum}
               onChange={(e)=>{this.setState({addNum:Number(e.target.value)})}} 
