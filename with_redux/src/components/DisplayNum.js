@@ -5,7 +5,8 @@ export default class DisplayNum extends Component{
     return (
       <div>
         Display Num <br/>
-        <input type="text" value="" readOnly></input>
+        <input type="text" value={this.props.number} readOnly></input>
+        {this.props.hello}
       </div>
     )
   }

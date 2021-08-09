@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import InputNum from './InputNum';
+import InputNum from '../containers/InputNum';
 
 export default class inputNumRoot extends Component {
   render(){
     return (
       <div>
         Input Num Root
-        <InputNum/>
+        <InputNum hello="hi"/>
       </div>
     )
   }
