@@ -13,7 +13,27 @@ const reducer = (state, action) => {
     }
   }
   else{
-
+    let newState;
+    switch (action.type){
+      case "CHANGE_MODE":
+        newState = {
+          ...state,
+          mode : action.mode
+        }
+        console.log(action, action.type, state, newState);
+        return newState;
+      case "SELECT_CONTENT":
+        newState = {
+          ...state,
+          mode:"read",
+          selected_id : action.selected_id
+        }
+        console.log(action, action.type, state, newState);
+        return newState;
+      default:
+        alert("reducer에 해당 action type이 없다!!")
+        return state;
+    }
   }
 }
 

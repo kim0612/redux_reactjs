@@ -4,7 +4,8 @@ class Read extends Component {
   render() {
     return (
       <div>
-        Read
+        <h2>{this.props.content.title}</h2>
+        <h5>{this.props.content.desc}</h5>
       </div>
     );
   }
