@@ -76,6 +76,26 @@ const reducer = (state, action) => {
           }
         }
 
+      case "UPDATE_CONTENT":
+        let new_contents = Array.from(state.contents);
+        let content;
+        let selected_contents_index_2;
+        for (let i=0 ; i<state.contents.length ; i++){
+          if(state.contents[i].id === state.selected_id){
+            selected_contents_index_2 = i;
+            break;
+          }
+        }
+        content = {id:state.selected_id, title:action.title, desc:action.desc};
+        new_contents.splice(selected_contents_index_2,1,content)
+        newState = {
+          ...state,
+          mode : "read",
+          contents : new_contents
+        }
+        console.log("====================\ndispatch action : ",action, "\n기존 state", state,"\n새로운 state", newState);
+        return newState;
+
       default:
         alert("reducer에 해당 action type이 없다!!")
         return state;
