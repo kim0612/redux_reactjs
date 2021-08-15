@@ -12,7 +12,7 @@ class Mode extends Component {
           this.props.onChangeMode("update");
           e.preventDefault();
         }}>update</a></li>
-        <li><button>delete</button></li>
+        <li><button onClick={()=>{this.props.onDeleteContent()}}>delete</button></li>
       </ul>
     );
   }
