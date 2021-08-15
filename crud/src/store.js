@@ -20,7 +20,7 @@ const reducer = (state, action) => {
           ...state,
           mode : action.mode
         }
-        console.log(action, action.type, state, newState);
+        console.log("====================\ndispatch action : ",action, "\n기존 state", state,"\n새로운 state", newState);
         return newState;
       case "SELECT_CONTENT":
         newState = {
@@ -28,7 +28,19 @@ const reducer = (state, action) => {
           mode:"read",
           selected_id : action.selected_id
         }
-        console.log(action, action.type, state, newState);
+        console.log("====================\ndispatch action : ",action, "\n기존 state", state,"\n새로운 state", newState);
+        return newState;
+      case "CREATE_CONTENT":
+        newState = {
+          ...state,
+          mode:"read",
+          selected_id : state.contents.length,
+          contents : [
+            ...state.contents,
+            {id: state.contents.length, title:action.title, desc:action.desc}
+          ]
+        }
+        console.log("====================\ndispatch action : ",action, "\n기존 state", state,"\n새로운 state", newState);
         return newState;
       default:
         alert("reducer에 해당 action type이 없다!!")
